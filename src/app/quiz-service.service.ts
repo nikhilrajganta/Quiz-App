@@ -6,6 +6,10 @@ export interface IQuiz {
   question_type: string[];
   Choices: string[];
 }
+export interface IAnswers {
+  id: string;
+  correct_answer: string;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +26,7 @@ export class QuizServiceService {
       id: '2',
       Questions: 'Which of these are planets in our solar system?',
       question_type: ['MCA'],
-      Choices: ['Earth', 'Moon', 'Mars', 'Jupiter', 'Sun', 'Pluto'],
+      Choices: ['Earth', 'Moon', 'Mars', 'Jupiter'],
     },
     {
       id: '3',
@@ -39,13 +43,36 @@ export class QuizServiceService {
       id: '4',
       Questions: 'Which of these are programming languages?',
       question_type: ['MCA'],
-      Choices: ['Java', 'Python', 'C++', 'English', 'JavaScript', 'Ruby'],
+      Choices: ['Java', 'Python', 'C++', 'English'],
     },
     {
       id: '5',
       Questions: 'What is the chemical symbol for gold?',
       question_type: ['MCQ'],
       Choices: ['Au', 'Ag', 'Cu', 'Fe'],
+    },
+  ];
+
+  Answers: Array<IAnswers> = [
+    {
+      id: '1',
+      correct_answer: 'Paris',
+    },
+    {
+      id: '2',
+      correct_answer: 'Earth',
+    },
+    {
+      id: '3',
+      correct_answer: 'Pacific Ocean',
+    },
+    {
+      id: '4',
+      correct_answer: 'Java',
+    },
+    {
+      id: '5',
+      correct_answer: 'Au',
     },
   ];
 
