@@ -1,0 +1,29 @@
+.question-container {
+  margin: 150px;
+  padding: 10px;
+  width: 700px;
+  background-color: gray;
+}
+
+.navigation{
+    background-color: green;
+    list-style:none ;
+    font-size: x-large;
+}
+
+
+body {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    min-height: 100vh;
+    background-color: rgb(148, 98, 37);
+}
+
+choose-option{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    
+}
