@@ -1,0 +1,28 @@
+.homepage {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8f8f8, #fff);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .call-to-action button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background: rgb(27, 190, 114);
+    background: radial-gradient(circle, rgb(9, 179, 94) 34%, rgb(25, 190, 100) 61%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .call-to-action button:hover {
+    background: rgb(226,151,101);
+    background: radial-gradient(circle, rgba(226,151,101,1) 34%, rgba(191,99,38,1) 61%);
+  }
