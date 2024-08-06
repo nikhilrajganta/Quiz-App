@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 export interface IQuiz {
   id: string;
   Questions: string;
-  question_type: string[];
+  question_type: string;
   Choices: string[];
 }
 export interface IAnswers {
@@ -19,19 +19,19 @@ export class QuizServiceService {
     {
       id: '1',
       Questions: 'What is the capital of France?',
-      question_type: ['MCQ'],
+      question_type: 'MCQ',
       Choices: ['Paris', 'London', 'Berlin', 'Madrid'],
     },
     {
       id: '2',
       Questions: 'Which of these are planets in our solar system?',
-      question_type: ['MCA'],
+      question_type: 'MCA',
       Choices: ['Earth', 'Moon', 'Mars', 'Jupiter'],
     },
     {
       id: '3',
       Questions: 'What is the largest ocean on Earth?',
-      question_type: ['MCQ'],
+      question_type: 'MCQ',
       Choices: [
         'Pacific Ocean',
         'Atlantic Ocean',
@@ -42,13 +42,13 @@ export class QuizServiceService {
     {
       id: '4',
       Questions: 'Which of these are programming languages?',
-      question_type: ['MCA'],
+      question_type: 'MCA',
       Choices: ['Java', 'Python', 'C++', 'English'],
     },
     {
       id: '5',
       Questions: 'What is the chemical symbol for gold?',
-      question_type: ['MCQ'],
+      question_type: 'MCQ',
       Choices: ['Au', 'Ag', 'Cu', 'Fe'],
     },
   ];
@@ -77,4 +77,10 @@ export class QuizServiceService {
   ];
 
   constructor() {}
+
+  API = `https://quiz-qch5.onrender.com/`;
+
+  getAllquestions(): Promise<IQuiz[]> {
+    return fetch(`${this.API}/questions`).then((res) => res.json());
+  }
 }
