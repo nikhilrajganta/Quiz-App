@@ -5,6 +5,13 @@
 }
 
 <div class="button-group">
+  @if (!isFirstQuestion()) {
   <button class="button back-button" (click)="prevQuestion()">BACK</button>
+  } @if (!isLastQuestion()) {
   <button class="button next-button" (click)="nextQuestion()">NEXT</button>
+  } @if (isLastQuestion()) {
+  <button class="button submit-button" (click)="submitQuestions()">
+    SUBMIT
+  </button>
+  }
 </div>
