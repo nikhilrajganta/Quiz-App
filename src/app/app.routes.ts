@@ -16,9 +16,4 @@ export const routes: Routes = [
     path: 'scorecard',
     component: ScorecardComponent,
   },
-
-  {
-    path: 'question/:id',
-    component: ScorecardComponent,
-  },
 ];

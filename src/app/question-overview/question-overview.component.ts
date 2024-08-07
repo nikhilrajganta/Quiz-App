@@ -8,54 +8,55 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-question-overview',
   standalone: true,
-  imports: [MatRadioModule, MatCardModule,MatRadioModule, RouterLink],
+  imports: [MatRadioModule, MatCardModule, MatRadioModule, RouterLink],
   templateUrl: './question-overview.component.html',
   styleUrl: './question-overview.component.scss',
 })
-export class QuestionOverviewComponent{
+export class QuestionOverviewComponent {
   questions: Array<IQuiz> = [];
   // currentQuestion: IQuiz | null;
   // questions: IQuiz[] = [];
   // currentQuestion: IQuiz | undefined;
-@Input()radioQuestion = 
-  {
+  @Input() radioQuestion = {
     id: '1',
     Questions: 'What is the capital of France?',
     question_type: 'MCQ',
     Choices: ['Paris', 'London', 'Berlin', 'Madrid'],
-  }; 
-  id = 0 ; 
+  };
+  id = 0;
   QuestionsData: Array<IQuiz> = [];
 
   isLoading: boolean = true;
   msg = '';
 
-  constructor(public quizservice: QuizServiceService, private router: Router  , private route: ActivatedRoute) 
-    {
-      let currentQuestionIndex: any = this.route.snapshot.paramMap.get(
-        'id'
-      ) as string; // From URL
-      this.id = currentQuestionIndex;
-    }
-  
+  constructor(
+    public quizservice: QuizServiceService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    let currentQuestionIndex: any = this.route.snapshot.paramMap.get(
+      'id'
+    ) as string; // From URL
+    this.id = currentQuestionIndex;
+  }
 
   // After Initialization of the component
- 
+
   nextQuestion() {
     if (this.id < this.quizservice.QuestionsData.length - 1) {
       this.id++;
       this.radioQuestion = this.quizservice.QuestionsData[this.id];
-  
-      this.router.navigate([`question/${this.id}`]);
+
+      this.router.navigate([`questions/${this.id}`]);
     } else {
       this.onSubmit();
-    }}
-  
-    onSubmit() {
-      this.router.navigate(['/score']);
     }
+  }
 
- 
+  onSubmit() {
+    this.router.navigate(['/score']);
+  }
+
   // @Input() question = {
   //   id: '1',
   //   Questions: 'What is the capital of France?',

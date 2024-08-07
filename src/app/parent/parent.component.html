@@ -1,7 +1,5 @@
-
- @if(question.question_type=='MCQ') {
-    <app-question-overview />
-    } @else {
-        <app-questionbar [question] = "question" />
-    } 
-    
+@if(question.question_type=='MCQ') {
+<app-question-overview [radioQuestion]="question" />
+} @else {
+<app-questionbar [question]="question" />
+}
