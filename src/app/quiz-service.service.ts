@@ -38,12 +38,8 @@ export class QuizServiceService {
         return res.json();
       })
       .then((data) => {
-        this.QuestionsData = data; // Store the data in the service
+        this.QuestionsData = data;
         return this.QuestionsData;
-      })
-      .catch((error) => {
-        console.error('There was a problem with the fetch operation:', error);
-        throw error; // Rethrow the error for further handling
       });
   }
 
