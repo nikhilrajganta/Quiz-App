@@ -3,18 +3,21 @@ import { IQuiz, QuizServiceService } from '../quiz-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionbarComponent } from '../questionbar/questionbar.component';
 import { QuestionOverviewComponent } from '../question-overview/question-overview.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-parent',
   standalone: true,
-  imports: [QuestionbarComponent, QuestionOverviewComponent],
+  imports: [QuestionbarComponent, QuestionOverviewComponent , CommonModule],
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.scss',
 })
 export class ParentComponent {
+
+
   question: any = [];
   submit: any;
-
+  hiddenValue : any = "visible"  ; 
   id: any;
   QuestionsData: Array<IQuiz> = [];
 
@@ -23,21 +26,18 @@ export class ParentComponent {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.id = this.route.snapshot.paramMap.get('id') as string; // From URL // 1
+    this.id = this.route.snapshot.paramMap.get('id') as string; 
     this.id = +this.id;
     this.question = this.quizservice.QuestionsData[this.id - 1];
   }
 
-  // After Initialization of the component
 
   nextQuestion() {
     if (this.id < this.quizservice.QuestionsData.length) {
       this.id++;
       this.question = this.quizservice.QuestionsData[this.id - 1];
-      this.router.navigate([`questions/${this.id}`]);
-    } else {
-      this.onSubmit();
-    }
+      this.router.navigate([`questions/${this.id}`]); }
+   
   }
 
   prevQuestion() {
@@ -48,7 +48,16 @@ export class ParentComponent {
     }
   }
 
-  onSubmit() {
-    this.router.navigate(['/score']);
+  isFirstQuestion(): boolean {
+    return this.id === 1;
   }
+
+  isLastQuestion(): boolean {
+    return this.id === this.quizservice.QuestionsData.length;
+  }
+  submitQuestions() {
+    this.router.navigate(['/scorecard']);
+  }
+
+  
 }
