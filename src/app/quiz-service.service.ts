@@ -21,7 +21,9 @@ export interface Options {
 export class QuizServiceService {
   currentIndex: number = 0;
   QuestionsData: Array<IQuiz> = [];
-  choosed_ans: Array<Options> = [];
+  choosed_ans: Array<Options> = JSON.parse(
+    localStorage.getItem('choosed_ans') || '[]'
+  );
 
   constructor() {}
 
@@ -55,6 +57,7 @@ export class QuizServiceService {
     }
 
     console.log('❤🧡', answer, this.choosed_ans);
+    localStorage.setItem('choosed_ans', JSON.stringify(this.choosed_ans));
   }
 
   getAnsByQuestion(currentQuestion: any) {
