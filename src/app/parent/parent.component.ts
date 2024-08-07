@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IQuiz, QuizServiceService } from '../quiz-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionbarComponent } from '../questionbar/questionbar.component';
 import { QuestionOverviewComponent } from '../question-overview/question-overview.component';
 
@@ -14,15 +14,33 @@ import { QuestionOverviewComponent } from '../question-overview/question-overvie
 export class ParentComponent {
   question: any = [];
   submit: any;
+
+  id: any;
+  QuestionsData: Array<IQuiz> = [];
+
   constructor(
-    public quizService: QuizServiceService,
+    public quizservice: QuizServiceService,
+    private router: Router,
     private route: ActivatedRoute
   ) {
-    let id: any = this.route.snapshot.paramMap.get('id')// From URL
+    this.id = this.route.snapshot.paramMap.get('id') as string; // From URL // 1
+    this.id = +this.id;
+    this.question = this.quizservice.QuestionsData[this.id - 1];
+  }
 
-    console.log(id);
+  // After Initialization of the component
 
-    this.question = this.quizService.QuestionsData[id - 1];
-    console.log(this.question);
+  nextQuestion() {
+    if (this.id < this.quizservice.QuestionsData.length) {
+      this.id++;
+      this.question = this.quizservice.QuestionsData[this.id - 1];
+      this.router.navigate([`questions/${this.id}`]);
+    } else {
+      this.onSubmit();
+    }
+  }
+
+  onSubmit() {
+    this.router.navigate(['/score']);
   }
 }

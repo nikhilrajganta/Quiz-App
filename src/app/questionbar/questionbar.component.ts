@@ -19,34 +19,4 @@ export class QuestionbarComponent {
     question_type: 'MCA',
     Choices: ['Earth', 'Moon', 'Mars', 'Jupiter'],
   };
-  id = 0 ; 
-  QuestionsData: Array<IQuiz> = [];
-
-  isLoading: boolean = true;
-  msg = '';
-
-  constructor(public quizservice: QuizServiceService, private router: Router  , private route: ActivatedRoute) 
-    {
-      let currentQuestionIndex: any = this.route.snapshot.paramMap.get(
-        'id'
-      ) as string; // From URL
-      this.id = currentQuestionIndex;
-    }
-  
-
-  // After Initialization of the component
- 
-  nextQuestion() {
-    if (this.id < this.quizservice.QuestionsData.length - 1) {
-      this.id++;
-      this.question = this.quizservice.QuestionsData[this.id];
-  
-      this.router.navigate([`question/${this.id}`]);
-    } else {
-      this.onSubmit();
-    }}
-  
-    onSubmit() {
-      this.router.navigate(['/score']);
-    }
 }
