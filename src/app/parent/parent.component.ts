@@ -24,11 +24,7 @@ export class ParentComponent {
     public quizservice: QuizServiceService,
     private router: Router,
     private route: ActivatedRoute
-  ) {
-    this.id = this.route.snapshot.paramMap.get('id') as string; // From URL // 1
-    this.id = +this.id;
-    this.question = this.quizservice.QuestionsData[this.id - 1];
-  }
+  ) {}
 
   ngOnInit() {
     this.loadQuestions();
@@ -41,6 +37,8 @@ export class ParentComponent {
   // }
 
   loadQuestions() {
+    this.id = this.route.snapshot.paramMap.get('id') as string; // From URL // 1
+    this.id = +this.id;
     this.quizservice.getAllquestions().then((data) => {
       this.QuestionsData = data;
       this.question = this.QuestionsData[this.id - 1];
@@ -50,9 +48,9 @@ export class ParentComponent {
   // After Initialization of the component
 
   nextQuestion() {
-    if (this.id < this.quizservice.QuestionsData.length) {
+    if (this.id < this.QuestionsData.length) {
       this.id++;
-      this.question = this.quizservice.QuestionsData[this.id - 1];
+      this.question = this.QuestionsData[this.id - 1];
       this.router.navigate([`questions/${this.id}`]);
     }
   }
@@ -60,7 +58,7 @@ export class ParentComponent {
   prevQuestion() {
     if (this.id > 1) {
       this.id--;
-      this.question = this.quizservice.QuestionsData[this.id - 1];
+      this.question = this.QuestionsData[this.id - 1];
       this.router.navigate([`questions/${this.id}`]);
     }
   }
@@ -71,7 +69,7 @@ export class ParentComponent {
 
   // Method to check if the current question is the last one
   isLastQuestion(): boolean {
-    return this.id === this.quizservice.QuestionsData.length;
+    return this.id === this.QuestionsData.length;
   }
 
   submitQuestions() {

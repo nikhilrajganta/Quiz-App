@@ -13,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './question-overview.component.scss',
 })
 export class QuestionOverviewComponent {
-  choosed_answers: Array<Options> = [];
+  choosed_ans: Array<Options> = [];
 
   @Input() radioQuestion = {
     id: '1',

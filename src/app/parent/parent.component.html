@@ -1,8 +1,8 @@
-@if(question.question_type=='MCQ') {
+@if(QuestionsData.length > 0 ) { @if(question.question_type=='MCQ' ) {
 <app-question-overview [radioQuestion]="question" />
 } @else {
 <app-questionbar [question]="question" />
-}
+} }
 
 <div class="button-group">
   @if (!isFirstQuestion()) {
