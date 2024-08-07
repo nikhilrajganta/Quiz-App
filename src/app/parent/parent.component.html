@@ -8,7 +8,6 @@
     @if (!isFirstQuestion()) {
       <button class="button back-button" (click)="prevQuestion()">BACK</button>
     }
-    <button class="button skip-button">SKIP</button>
     @if (!isLastQuestion()) {
       <button class="button next-button" (click)="nextQuestion()">NEXT</button>
     }
