@@ -56,4 +56,8 @@ export class QuizServiceService {
 
     console.log('❤🧡', answer, this.choosed_ans);
   }
+
+  getAnsByQuestion(currentQuestion: any) {
+    return this.choosed_ans.find((ans) => ans.id == currentQuestion.id);
+  }
 }

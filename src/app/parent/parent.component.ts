@@ -19,6 +19,7 @@ export class ParentComponent {
   id: any;
   QuestionsData: any = [];
   choosed_answers: Array<Options> = [];
+  answer: any;
 
   constructor(
     public quizservice: QuizServiceService,
@@ -42,6 +43,7 @@ export class ParentComponent {
     this.quizservice.getAllquestions().then((data) => {
       this.QuestionsData = data;
       this.question = this.QuestionsData[this.id - 1];
+      this.getChoosenAnswer();
     });
   }
 
@@ -52,7 +54,12 @@ export class ParentComponent {
       this.id++;
       this.question = this.QuestionsData[this.id - 1];
       this.router.navigate([`questions/${this.id}`]);
+      this.getChoosenAnswer();
     }
+  }
+
+  getChoosenAnswer() {
+    this.answer = this.quizservice.getAnsByQuestion(this.question);
   }
 
   prevQuestion() {
@@ -60,6 +67,7 @@ export class ParentComponent {
       this.id--;
       this.question = this.QuestionsData[this.id - 1];
       this.router.navigate([`questions/${this.id}`]);
+      this.getChoosenAnswer();
     }
   }
 

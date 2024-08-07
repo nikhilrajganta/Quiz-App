@@ -1,6 +1,7 @@
 @if(QuestionsData.length > 0 ) { @if(question.question_type=='MCQ' ) {
 <app-question-overview
   [radioQuestion]="question"
+  [answer]="answer"
   (AnsEvent)="patchAnswers($event)"
 />
 } @else {

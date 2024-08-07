@@ -28,14 +28,24 @@ export class QuestionOverviewComponent {
     question_type: 'MCQ',
     Choices: ['Paris', 'London', 'Berlin', 'Madrid'],
   };
+  @Input() answer: any;
+  @Output() AnsEvent = new EventEmitter<any>();
 
   testForm: FormGroup;
-  @Output() AnsEvent = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder) {
     this.testForm = this.fb.group({
       answer: '',
     }); // View -> Model
+  }
+
+  ngOnChanges() {
+    console.log(this.answer);
+    if (!this.answer) {
+      this.testForm.reset();
+    } else {
+      this.testForm.patchValue(this.answer);
+    }
   }
 
   optionChoosen() {
