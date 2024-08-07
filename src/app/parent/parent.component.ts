@@ -75,4 +75,9 @@ export class ParentComponent {
   submitQuestions() {
     this.router.navigate(['/scorecard']);
   }
+
+  patchAnswers(answer: any) {
+    console.log('❤', answer, this.question);
+    // this.quizservice.patchAnswers({ ...this.question, ...answer });
+  }
 }

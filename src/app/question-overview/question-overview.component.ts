@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { Options } from '../quiz-service.service';
@@ -30,6 +30,7 @@ export class QuestionOverviewComponent {
   };
 
   testForm: FormGroup;
+  @Output() AnsEvent = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder) {
     this.testForm = this.fb.group({
@@ -39,5 +40,6 @@ export class QuestionOverviewComponent {
 
   optionChoosen() {
     console.log(this.testForm.value);
+    this.AnsEvent.emit(this.testForm.value);
   }
 }
