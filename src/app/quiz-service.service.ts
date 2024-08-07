@@ -44,4 +44,16 @@ export class QuizServiceService {
         throw error; // Rethrow the error for further handling
       });
   }
+
+  patchAnswers(answer: any) {
+    const ansIndx = this.choosed_ans.findIndex((ans) => ans.id == answer.id);
+
+    if (ansIndx < 0) {
+      this.choosed_ans.push(answer);
+    } else {
+      this.choosed_ans[ansIndx] = answer;
+    }
+
+    console.log('❤🧡', answer, this.choosed_ans);
+  }
 }

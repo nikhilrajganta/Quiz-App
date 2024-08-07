@@ -78,6 +78,6 @@ export class ParentComponent {
 
   patchAnswers(answer: any) {
     console.log('❤', answer, this.question);
-    // this.quizservice.patchAnswers({ ...this.question, ...answer });
+    this.quizservice.patchAnswers({ id: this.question.id, ...answer });
   }
 }
