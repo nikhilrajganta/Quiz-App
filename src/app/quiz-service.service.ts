@@ -10,6 +10,10 @@ export interface IAnswers {
   id: string;
   correct_answer: string;
 }
+export interface Options {
+  id: string;
+  choosed_answers: string[];
+}
 
 @Injectable({
   providedIn: 'root',
@@ -105,15 +109,4 @@ export class QuizServiceService {
         throw error; // Rethrow the error for further handling
       });
   }
-  CurrQuesIdx(): number {
-    return this.currentIndex;
-  }
-
-  incrementCurrQuesIdx(): void {
-    this.currentIndex += 1;
-  }
-
-  // resetCurrQuesIdx(): void {
-  //   this.currentIndex = 0;
-  // }
 }

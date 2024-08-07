@@ -1,7 +1,7 @@
-import { Component, Input, input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
-import { QuizServiceService, IQuiz } from '../quiz-service.service';
+import { Options } from '../quiz-service.service';
 import { RouterLink } from '@angular/router';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -13,6 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './question-overview.component.scss',
 })
 export class QuestionOverviewComponent {
+  choosed_answers: Array<Options> = [];
+
   @Input() radioQuestion = {
     id: '1',
     Questions: 'What is the capital of France?',
