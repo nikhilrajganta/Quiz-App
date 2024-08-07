@@ -13,7 +13,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './parent.component.scss',
 })
 export class ParentComponent {
-
+submitQuestions() {
+throw new Error('Method not implemented.');
+}
 
   question: any = [];
   submit: any;
@@ -26,18 +28,21 @@ export class ParentComponent {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.id = this.route.snapshot.paramMap.get('id') as string; 
+    this.id = this.route.snapshot.paramMap.get('id') as string; // From URL // 1
     this.id = +this.id;
     this.question = this.quizservice.QuestionsData[this.id - 1];
   }
 
+  // After Initialization of the component
 
   nextQuestion() {
     if (this.id < this.quizservice.QuestionsData.length) {
       this.id++;
       this.question = this.quizservice.QuestionsData[this.id - 1];
-      this.router.navigate([`questions/${this.id}`]); }
-   
+      this.router.navigate([`questions/${this.id}`]);
+    } else {
+      this.onSubmit();
+    }
   }
 
   prevQuestion() {
@@ -48,15 +53,22 @@ export class ParentComponent {
     }
   }
 
+  onSubmit() {
+    this.router.navigate(['/score']);
+  }
+
+  // hiddenvaluefunction() {
+  //   if(this.id == this.quizservice.QuestionsData.length ) {
+  //     this.hiddenValue = "none" 
+  //   }
+  //   }
   isFirstQuestion(): boolean {
     return this.id === 1;
   }
 
+  // Method to check if the current question is the last one
   isLastQuestion(): boolean {
     return this.id === this.quizservice.QuestionsData.length;
-  }
-  submitQuestions() {
-    this.router.navigate(['/scorecard']);
   }
 
   
