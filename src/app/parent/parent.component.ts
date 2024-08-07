@@ -8,18 +8,14 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-parent',
   standalone: true,
-  imports: [QuestionbarComponent, QuestionOverviewComponent , CommonModule],
+  imports: [QuestionbarComponent, QuestionOverviewComponent, CommonModule],
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.scss',
 })
 export class ParentComponent {
-submitQuestions() {
-throw new Error('Method not implemented.');
-}
-
   question: any = [];
   submit: any;
-  hiddenValue : any = "visible"  ; 
+  hiddenValue: any = 'visible';
   id: any;
   QuestionsData: Array<IQuiz> = [];
 
@@ -40,8 +36,6 @@ throw new Error('Method not implemented.');
       this.id++;
       this.question = this.quizservice.QuestionsData[this.id - 1];
       this.router.navigate([`questions/${this.id}`]);
-    } else {
-      this.onSubmit();
     }
   }
 
@@ -53,13 +47,9 @@ throw new Error('Method not implemented.');
     }
   }
 
-  onSubmit() {
-    this.router.navigate(['/score']);
-  }
-
   // hiddenvaluefunction() {
   //   if(this.id == this.quizservice.QuestionsData.length ) {
-  //     this.hiddenValue = "none" 
+  //     this.hiddenValue = "none"
   //   }
   //   }
   isFirstQuestion(): boolean {
@@ -71,5 +61,7 @@ throw new Error('Method not implemented.');
     return this.id === this.quizservice.QuestionsData.length;
   }
 
-  
+  submitQuestions() {
+    this.router.navigate(['/scorecard']);
+  }
 }

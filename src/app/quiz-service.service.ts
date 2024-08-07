@@ -86,12 +86,4 @@ export class QuizServiceService {
   getAllquestions(): Promise<IQuiz[]> {
     return fetch(`${this.API}/questions`).then((res) => res.json());
   }
-
-  CurrQuesIdx(): number {
-    return this.currentIndex;
-  }
-
-  incrementCurrQuesIdx(): void {
-    this.currentIndex += 1;
-  }
 }
