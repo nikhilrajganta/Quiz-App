@@ -1,0 +1,22 @@
+<mat-card class="question-container">
+  <mat-card-content>
+    <h3>
+      <strong>{{ question.id }}</strong
+      ><span>.</span>{{ question.Questions }}
+    </h3>
+    <div class="choose-option">
+      <div class="op1">
+        <mat-checkbox value="1">{{ question.Choices[0] }}</mat-checkbox>
+      </div>
+      <div class="op2">
+        <mat-checkbox value="2">{{ question.Choices[1] }}</mat-checkbox>
+      </div>
+      <div class="op3">
+        <mat-checkbox value="3">{{ question.Choices[2] }}</mat-checkbox>
+      </div>
+      <div class="op4">
+        <mat-checkbox value="4">{{ question.Choices[3] }}</mat-checkbox>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

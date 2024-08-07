@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IQuiz, QuizServiceService } from '../quiz-service.service';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-questionbar',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, MatCheckboxModule, MatCardModule],
   templateUrl: './questionbar.component.html',
   styleUrl: './questionbar.component.scss',
 })
@@ -18,20 +21,10 @@ export class QuestionbarComponent {
   constructor(public quizservice: QuizServiceService, private router: Router) {}
 
   // After Initialization of the component
-  ngOnInit() {
-    this.loadMovies();
-  }
-
-  loadMovies() {
-    this.quizservice
-      .getAllquestions()
-      .then((data) => {
-        this.QuestionsData = data;
-        this.isLoading = false;
-      })
-      .catch(() => {
-        this.isLoading = false;
-        this.msg = 'Something went wrong 🥲';
-      });
-  }
+  @Input() question = {
+    id: '2',
+    Questions: 'Which of these are planets in our solar system?',
+    question_type: 'MCA',
+    Choices: ['Earth', 'Moon', 'Mars', 'Jupiter'],
+  };
 }

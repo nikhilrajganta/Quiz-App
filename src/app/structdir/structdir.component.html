@@ -1,0 +1,5 @@
+@for(item of allitems ; track $index) { @if(submit.question_type=='MCQ') {
+<app-question-overview />
+} @else {
+<app-questionbar />
+} }

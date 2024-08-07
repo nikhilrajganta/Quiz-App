@@ -1,24 +1,28 @@
-import { Component , OnInit } from '@angular/core';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatCardModule} from '@angular/material/card';
+import { Component, OnInit } from '@angular/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
 import { QuizServiceService, IQuiz } from '../quiz-service.service';
 
 @Component({
   selector: 'app-question-overview',
   standalone: true,
-  imports: [MatRadioModule , MatCardModule],
+  imports: [MatRadioModule, MatCardModule],
   templateUrl: './question-overview.component.html',
-  styleUrl: './question-overview.component.scss'
+  styleUrl: './question-overview.component.scss',
 })
-
-
-export class QuestionOverviewComponent  implements OnInit{
-  questions:Array<IQuiz> = []
+export class QuestionOverviewComponent implements OnInit {
+  questions: Array<IQuiz> = [];
   // currentQuestion: IQuiz | null;
   // questions: IQuiz[] = [];
   currentQuestion: IQuiz | undefined;
 
   constructor(private quizService: QuizServiceService) {}
+  // @Input() question = {
+  //   id: '1',
+  //   Questions: 'What is the capital of France?',
+  //   question_type: 'MCQ',
+  //   Choices: ['Paris', 'London', 'Berlin', 'Madrid'],
+  // };
 
   ngOnInit(): void {
     this.quizService.getAllquestions().then((questions) => {
@@ -38,4 +42,3 @@ export class QuestionOverviewComponent  implements OnInit{
     }
   }
 }
-

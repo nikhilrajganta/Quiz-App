@@ -1,14 +1,23 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { QuestionOverviewComponent } from "./question-overview/question-overview.component";
+import { QuestionOverviewComponent } from './question-overview/question-overview.component';
 // import { RouterLink, RouterOutlet } from '@angular/router';
 import { ScorecardComponent } from './scorecard/scorecard.component';
+import { QuestionbarComponent } from './questionbar/questionbar.component';
+import { StructdirComponent } from './structdir/structdir.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   // imports: [RouterOutlet, QuestionOverviewComponent],
-  imports: [RouterOutlet, RouterLink, ScorecardComponent , QuestionOverviewComponent],
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    ScorecardComponent,
+    QuestionOverviewComponent,
+    QuestionbarComponent,
+    StructdirComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
