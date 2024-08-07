@@ -40,6 +40,14 @@ export class ParentComponent {
     }
   }
 
+  prevQuestion() {
+    if (this.id > 1) {
+      this.id--;
+      this.question = this.quizservice.QuestionsData[this.id - 1];
+      this.router.navigate([`questions/${this.id}`]);
+    }
+  }
+
   onSubmit() {
     this.router.navigate(['/score']);
   }
