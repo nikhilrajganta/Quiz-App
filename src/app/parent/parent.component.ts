@@ -3,18 +3,23 @@ import { IQuiz, QuizServiceService } from '../quiz-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionbarComponent } from '../questionbar/questionbar.component';
 import { QuestionOverviewComponent } from '../question-overview/question-overview.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-parent',
   standalone: true,
-  imports: [QuestionbarComponent, QuestionOverviewComponent],
+  imports: [QuestionbarComponent, QuestionOverviewComponent , CommonModule],
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.scss',
 })
 export class ParentComponent {
+submitQuestions() {
+throw new Error('Method not implemented.');
+}
+
   question: any = [];
   submit: any;
-
+  hiddenValue : any = "visible"  ; 
   id: any;
   QuestionsData: Array<IQuiz> = [];
 
@@ -51,4 +56,20 @@ export class ParentComponent {
   onSubmit() {
     this.router.navigate(['/score']);
   }
+
+  // hiddenvaluefunction() {
+  //   if(this.id == this.quizservice.QuestionsData.length ) {
+  //     this.hiddenValue = "none" 
+  //   }
+  //   }
+  isFirstQuestion(): boolean {
+    return this.id === 1;
+  }
+
+  // Method to check if the current question is the last one
+  isLastQuestion(): boolean {
+    return this.id === this.quizservice.QuestionsData.length;
+  }
+
+  
 }
