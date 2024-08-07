@@ -17,7 +17,8 @@ export class ParentComponent {
   submit: any;
   hiddenValue: any = 'visible';
   id: any;
-  QuestionsData: Array<IQuiz> = [];
+  // id: number = 1;
+  QuestionsData: any = [];
 
   constructor(
     public quizservice: QuizServiceService,
@@ -27,6 +28,23 @@ export class ParentComponent {
     this.id = this.route.snapshot.paramMap.get('id') as string; // From URL // 1
     this.id = +this.id;
     this.question = this.quizservice.QuestionsData[this.id - 1];
+  }
+
+  ngOnInit() {
+    this.loadQuestions();
+  }
+
+  // loadQuestions() {
+  //   this.quizservice
+  //     .getAllquestions()
+  //     .then((data) => (this.QuestionsData = data));
+  // }
+
+  loadQuestions() {
+    this.quizservice.getAllquestions().then((data) => {
+      this.QuestionsData = data;
+      this.question = this.QuestionsData[this.id - 1];
+    });
   }
 
   // After Initialization of the component
