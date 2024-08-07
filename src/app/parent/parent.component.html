@@ -1,1 +1,7 @@
-<app-questionbar />
+
+ @if(question.question_type=='MCQ') {
+    <app-question-overview />
+    } @else {
+        <app-questionbar [question] = "question" />
+    } 
+    

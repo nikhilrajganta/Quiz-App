@@ -17,6 +17,13 @@
       <div class="op4">
         <mat-checkbox value="4">{{ question.Choices[3] }}</mat-checkbox>
       </div>
+      <div class="button-group">
+        <button class="button back-button">BACK</button>
+        <button class="button skip-button">SKIP</button>
+        <button class="button next-button" (click)="nextQuestion()">
+          NEXT
+        </button>
+      </div>
     </div>
   </mat-card-content>
 </mat-card>
