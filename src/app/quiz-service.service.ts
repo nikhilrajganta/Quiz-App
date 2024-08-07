@@ -20,9 +20,7 @@ export interface Options {
 })
 export class QuizServiceService {
   currentIndex: number = 0;
-
   QuestionsData: Array<IQuiz> = [];
-
   choosed_ans: Array<Options> = [];
 
   constructor() {}
