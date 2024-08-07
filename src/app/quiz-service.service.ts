@@ -15,6 +15,8 @@ export interface IAnswers {
   providedIn: 'root',
 })
 export class QuizServiceService {
+  currentIndex : number= 0;
+
   QuestionsData: Array<IQuiz> = [
     {
       id: '1',
@@ -83,4 +85,18 @@ export class QuizServiceService {
   getAllquestions(): Promise<IQuiz[]> {
     return fetch(`${this.API}/questions`).then((res) => res.json());
   }
+
+
+
+  CurrQuesIdx(): number {
+    return this.currentIndex;
+  }
+
+  incrementCurrQuesInd(): void {
+    this.currentIndex += 1;
+  }
+
+
 }
+
+
