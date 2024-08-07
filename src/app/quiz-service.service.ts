@@ -79,6 +79,18 @@ export class QuizServiceService {
   ];
   question: any;
 
+  getQuestions(): Promise<IQuiz[]> {
+    return fetch('https://669a42a59ba098ed61fef807.mockapi.io/movies').then(
+      (res) => res.json()
+    );
+  }
+
+  getQuestionsById(id: string): Promise<IQuiz> {
+    return fetch(
+      `https://669a42a59ba098ed61fef807.mockapi.io/movies/${id}`
+    ).then((res) => res.json());
+  }
+
   constructor() {}
 
   API = `https://quiz-qch5.onrender.com/`;
