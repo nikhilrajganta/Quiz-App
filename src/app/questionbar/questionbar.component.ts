@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IQuiz, QuizServiceService } from '../quiz-service.service';
+import { IQuiz, Options, QuizServiceService } from '../quiz-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './questionbar.component.scss',
 })
 export class QuestionbarComponent {
+  choosed_answers: Array<Options> = [];
   @Input() question = {
     id: '2',
     Questions: 'Which of these are planets in our solar system?',

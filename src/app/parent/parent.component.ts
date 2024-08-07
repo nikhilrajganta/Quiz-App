@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IQuiz, QuizServiceService } from '../quiz-service.service';
+import { IQuiz, Options, QuizServiceService } from '../quiz-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionbarComponent } from '../questionbar/questionbar.component';
 import { QuestionOverviewComponent } from '../question-overview/question-overview.component';
@@ -17,8 +17,8 @@ export class ParentComponent {
   submit: any;
   hiddenValue: any = 'visible';
   id: any;
-  // id: number = 1;
   QuestionsData: any = [];
+  choosed_answers: Array<Options> = [];
 
   constructor(
     public quizservice: QuizServiceService,
