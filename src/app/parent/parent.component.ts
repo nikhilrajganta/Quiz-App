@@ -65,11 +65,6 @@ export class ParentComponent {
     }
   }
 
-  // hiddenvaluefunction() {
-  //   if(this.id == this.quizservice.QuestionsData.length ) {
-  //     this.hiddenValue = "none"
-  //   }
-  //   }
   isFirstQuestion(): boolean {
     return this.id === 1;
   }
