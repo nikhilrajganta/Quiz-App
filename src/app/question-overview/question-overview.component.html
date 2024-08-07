@@ -1,35 +1,44 @@
 <nav class="navigation">
-    <li>
-        Questions
-    </li>
+  <li>Questions</li>
 </nav>
 
-
 <mat-card class="question-container">
-    <mat-card-content>
-      <h3><strong>1.</strong> What is the capital of France</h3>
-      <div class="choose-option">
-        <mat-radio-group aria-label="Select an option">
+  <mat-card-content>
+    <h3>
+      <strong>{{ currentQuestion?.id }}.</strong>
+      {{ currentQuestion?.Questions }}
+    </h3>
+    <div class="choose-option">
+      <mat-radio-group aria-label="Select an option">
+        @for(let choice of currentQuestion.Choices; track $index){
           <div class="op1">
-              <mat-radio-button value="1">Paris</mat-radio-button>
-          </div>
-          <div class="op2">
-                  <mat-radio-button value="2">Moscow</mat-radio-button>
-          </div>
-          <div class="op3">
-              <mat-radio-button value="2">NewYork</mat-radio-button>
-          </div>
-          <div class="op4">
-              <mat-radio-button value="2">Delhi</mat-radio-button>
-          </div>
-        </mat-radio-group>
-      </div>
-        <!-- <button
+                <mat-radio-button value="1">{{currentQuestion?.choice}}</mat-radio-button>
+            </div>
+        }
+      </mat-radio-group>
+    </div>
+    <!-- <button
           mat-icon-button
           aria-label=""
           routerLink="/movies/{{ id }}"
         >
           <mat-icon>Next</mat-icon>
         </button> -->
-    </mat-card-content>
+  </mat-card-content>
 </mat-card>
+
+<!-- <mat-card class="question-container" *ngIf="currentQuestion">
+  <mat-card-content>
+    <h3><strong>{{ currentQuestion.id }}.</strong> {{ currentQuestion.Questions }}</h3>
+    <div class="choose-option">
+      <mat-radio-group aria-label="Select an option">
+        <div *ngFor="let choice of currentQuestion.Choices">
+          <mat-radio-button>{{ choice }}</mat-radio-button>
+        </div>
+      </mat-radio-group>
+    </div>
+    <button mat-icon-button aria-label="Next Question" (click)="nextQuestion()">
+      <mat-icon>Next</mat-icon>
+    </button>
+  </mat-card-content>
+</mat-card> -->

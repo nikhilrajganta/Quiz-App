@@ -92,9 +92,13 @@ export class QuizServiceService {
     return this.currentIndex;
   }
 
-  incrementCurrQuesInd(): void {
+  incrementCurrQuesIdx(): void {
     this.currentIndex += 1;
   }
+
+  // resetCurrQuesIdx(): void {
+  //   this.currentIndex = 0;
+  // }
 
 
 }
