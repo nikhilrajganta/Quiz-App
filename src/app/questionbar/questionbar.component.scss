@@ -1,0 +1,83 @@
+.question-container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+mat-card-content h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.choose-option {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+mat-radio-group,
+mat-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+mat-radio-button,
+mat-checkbox {
+    font-size: 1rem;
+    color: #555;
+}
+
+mat-radio-button:hover,
+mat-checkbox:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-button {
+    background-color: #ff6f61;
+    color: white;
+}
+
+.back-button:hover {
+    background-color: #e65b50;
+}
+
+.skip-button {
+    background-color: #ffc107;
+    color: white;
+}
+
+.skip-button:hover {
+    background-color: #e0a800;
+}
+
+.next-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+.next-button:hover {
+    background-color: #43a047;
+}
