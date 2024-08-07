@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   constructor(private router: Router) {}
   starttest() {
-    this.router.navigate(['/scorecard']);
+    this.router.navigate(['/:id']);
     console.log('Start  button clicked!');
   }
 }

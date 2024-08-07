@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { QuizServiceService, IQuiz } from '../quiz-service.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-question-overview',
   standalone: true,
-  imports: [MatRadioModule, MatCardModule],
+  imports: [MatRadioModule, MatCardModule, RouterLink],
   templateUrl: './question-overview.component.html',
   styleUrl: './question-overview.component.scss',
 })
