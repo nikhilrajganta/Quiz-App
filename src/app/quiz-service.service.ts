@@ -53,6 +53,7 @@ export class QuizServiceService {
     }
 
     console.log('❤🧡', answer, this.choosed_ans);
+    //this.choosed ans contains all the choosed answers.
     localStorage.setItem('choosed_ans', JSON.stringify(this.choosed_ans));
   }
 
