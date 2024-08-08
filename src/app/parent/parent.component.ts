@@ -87,6 +87,7 @@ export class ParentComponent {
   }
 
   submitQuestions() {
+    this.quizservice.Sendresponse();
     this.router.navigate(['/scorecard']);
   }
 

@@ -20,7 +20,7 @@
         </div>
       </div> -->
       @for (options of question.Choices; track $index; let i = $index) {
-      <div formArrayName="option">
+      <div formArrayName="answer">
         <mat-checkbox [formControlName]="i" (change)="pushToParent()"
           >{{ options }}
         </mat-checkbox>

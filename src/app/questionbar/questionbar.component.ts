@@ -32,7 +32,7 @@ export class QuestionbarComponent {
 
   constructor(private fb: FormBuilder) {
     this.testsForm = this.fb.group({
-      option: this.fb.array(
+      answer: this.fb.array(
         this.question.Choices.map(() => this.fb.control(false))
       ),
     });
@@ -49,14 +49,9 @@ export class QuestionbarComponent {
 
   //emitting the event to parent
   pushToParent() {
+    //that particular submit value will be stored
     let response: any = this.testsForm.value;
     this.AnsEvent.emit(response);
     console.log(response);
-  }
-  onSubmit() {
-    const selected = this.testsForm.value.pushToParent();
-    // .map((checked: boolean, i: number) => (checked ? i : null))
-    // .filter((v: string | null) => v !== null);
-    console.log(selected);
   }
 }
