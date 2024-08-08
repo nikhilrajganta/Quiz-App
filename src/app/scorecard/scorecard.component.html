@@ -1,11 +1,46 @@
-@if(score >70 && score <=90) {
-<h3>Hurrayyyy!!!!!</h3>
-} @if(score <=70 && score >=45){
-<h4>good</h4>
-} @else {
-<h3>Need to improve</h3>
-}
+<!-- <div class="remark">
+  <div class="prize">
+    <img
+      src="https://media.istockphoto.com/id/1183252990/vector/first-prize-gold-trophy-icon-prize-gold-trophy-winner-first-prize-vector-illustration-and.jpg?s=612x612&w=0&k=20&c=cr3yNa3yDHeqaN_-2W8TmGvuZ2hLXufO75KOdjY-1uo="
+      alt=""
+    />
+  </div>
+  <h2>🏁🏁 Your Test is Finished 🏁🏁</h2>
+  <div class="sentence">
+    @if(score >70 && score <=90) {
+    <h2 class = "val">Hurrayyyy!!!!! 😁</h2>
+    } @if(score <=70 && score >=45){
+    <h2 class = "val">Good 😊👍👍</h2>
+    } @else {
+    <h2 class = "val">Need to improve 😒😒😒😒</h2>
+    }
+    <h2>Your Marks - {{score}}</h2>
+  </div>
+</div> -->
 
-<!--Method-->
 
-<button mat-icon-button aria-label="click button">Show Answers</button>
+<!-- score-card.component.html -->
+<div class="remark">
+  <div class="prize">
+    <img
+      src="https://media.istockphoto.com/id/1183252990/vector/first-prize-gold-trophy-icon-prize-gold-trophy-winner-first-prize-vector-illustration-and.jpg?s=612x612&w=0&k=20&c=cr3yNa3yDHeqaN_-2W8TmGvuZ2hLXufO75KOdjY-1uo="
+      alt="Trophy"
+    />
+  </div>
+  <h2>🏁🏁 Your Test is Finished 🏁🏁</h2>
+  <div class="sentence">
+    <ng-container *ngIf="score > 70 && score <= 90">
+      <h2 class="val">Hurrayyyy!!!!! 😁</h2>
+    </ng-container>
+    <ng-container *ngIf="score <= 70 && score >= 45">
+      <h2 class="val">Good 😊👍👍</h2>
+    </ng-container>
+    <ng-container *ngIf="score < 45">
+      <h2 class="val">Need to improve 😒😒😒😒</h2>
+    </ng-container>
+    <h2>Your Marks - {{ score }}</h2>
+  </div>
+</div>
+
+
+<!-- <button mat-icon-button aria-label="click button">Show Answers</button> -->

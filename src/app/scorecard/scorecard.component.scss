@@ -1,0 +1,46 @@
+// .remark {
+//     display: flex;
+//     flex-direction: column;
+//     align-content: center;
+//     margin-left: 100px;
+//     // justify-content: center;
+// }
+
+// img{
+//     width: 35%;
+// }
+
+// .val{
+//     padding-left: 175px;
+// }
+
+
+/* score-card.component.css */
+.remark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 400px;
+    background-color: #f9f9f9;
+}
+
+.prize {
+    margin-bottom: 20px;
+}
+
+.prize img {
+    width: 50%;
+}
+
+.sentence {
+    text-align: center;
+}
+
+.val {
+    margin: 10px 0;
+    font-size: 1.5em;
+}

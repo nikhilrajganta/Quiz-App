@@ -27,4 +27,17 @@ import { QuestionNavigateComponent } from './question-navigate/question-navigate
 })
 export class AppComponent {
   title = 'quiz-app';
+
+  // ngOnInit() {
+  //   const duration = 5000; // in milliseconds
+
+  //   confetti({
+  //     particleCount: 100,
+  //     spread: 160,
+  //     origin: { y: 0.6 },
+  //   });
+
+  //   // Clear confetti after a certain duration
+  //   setTimeout(() => confetti.reset(), duration);
+  // }
 }
