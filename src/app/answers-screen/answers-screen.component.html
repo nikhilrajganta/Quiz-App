@@ -6,3 +6,12 @@
         <h1>Wow You got </h1>
     </div>
 </div>
+<div>
+    @for(list of allAnswers ; track $index){
+    <p>Question: {{ list.id }}</p>
+    <p>Correct Option: {{ list.answer}}</p>
+    }
+  </div>
+   
+   
+   <!-- <li><a routerLink="/answers"></a></li> -->

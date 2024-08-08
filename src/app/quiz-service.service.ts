@@ -15,12 +15,15 @@ export interface Options {
   choosed_answers: string[];
 }
 
+
+
 @Injectable({
   providedIn: 'root',
 })
 export class QuizServiceService {
   currentIndex: number = 0;
   QuestionsData: Array<IQuiz> = [];
+  responseData : any = [] ; 
   choosed_ans: Array<Options> = JSON.parse(
     localStorage.getItem('choosed_ans') || '[]'
   );
@@ -59,5 +62,20 @@ export class QuizServiceService {
 
   getAnsByQuestion(currentQuestion: any) {
     return this.choosed_ans.find((ans) => ans.id == currentQuestion.id);
+  }
+
+  getAllAnswers() : any {
+    return fetch(`${this.API}/questions`)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return res.json();
+    })
+    .then((data) => {
+      this.responseData = data;
+      return this.responseData;
+    })
+
   }
 }

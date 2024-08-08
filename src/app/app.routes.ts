@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ScorecardComponent } from './scorecard/scorecard.component';
 import { ParentComponent } from './parent/parent.component';
+import { AnswersScreenComponent } from './answers-screen/answers-screen.component';
 
 export const routes: Routes = [
   {
@@ -16,4 +17,8 @@ export const routes: Routes = [
     path: 'scorecard',
     component: ScorecardComponent,
   },
+  {
+    path : 'answers', 
+    component: AnswersScreenComponent
+  }
 ];
