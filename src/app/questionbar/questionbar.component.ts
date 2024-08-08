@@ -53,4 +53,10 @@ export class QuestionbarComponent {
     this.AnsEvent.emit(response);
     console.log(response);
   }
+  onSubmit() {
+    const selected = this.testsForm.value.pushToParent();
+    // .map((checked: boolean, i: number) => (checked ? i : null))
+    // .filter((v: string | null) => v !== null);
+    console.log(selected);
+  }
 }
