@@ -4,11 +4,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionbarComponent } from '../questionbar/questionbar.component';
 import { QuestionOverviewComponent } from '../question-overview/question-overview.component';
 import { CommonModule } from '@angular/common';
+import { QuestionNavigateComponent } from '../question-navigate/question-navigate.component';
 
 @Component({
   selector: 'app-parent',
   standalone: true,
-  imports: [QuestionbarComponent, QuestionOverviewComponent, CommonModule],
+  imports: [
+    QuestionbarComponent,
+    QuestionOverviewComponent,
+    CommonModule,
+    QuestionNavigateComponent,
+  ],
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.scss',
 })
@@ -87,5 +93,14 @@ export class ParentComponent {
   patchAnswers(answer: any) {
     console.log('❤', answer, this.question);
     this.quizservice.patchAnswers({ id: this.question.id, ...answer });
+  }
+
+  // switchQuestion() {}
+
+  switchQuestion(questionId: number) {
+    this.id = questionId;
+    this.question = this.QuestionsData[this.id - 1];
+    this.router.navigate([`questions/${this.id}`]);
+    this.getChoosenAnswer();
   }
 }

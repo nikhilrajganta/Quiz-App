@@ -1,3 +1,55 @@
+<!-- <div *ngIf="QuestionsData.length > 0">
+  <div class="question-navigation">
+    <app-question-navigate
+      *ngFor="let question of QuestionsData; let i = index"
+      [questionNumber]="i + 1"
+      [questionId]="i + 1"
+      (switchQuestion)="switchQuestion($event)"
+    ></app-question-navigate>
+  </div>
+
+  <div *ngIf="question.question_type == 'MCQ'">
+    <app-question-overview
+      [radioQuestion]="question"
+      [answer]="answer"
+      (AnsEvent)="patchAnswers($event)"
+    />
+  </div>
+  <div *ngIf="question.question_type != 'MCQ'">
+    <app-questionbar [question]="question" />
+  </div>
+</div>
+
+<div class="button-group">
+  <button
+    class="button back-button"
+    *ngIf="!isFirstQuestion()"
+    (click)="prevQuestion()"
+  >
+    BACK
+  </button>
+  <button
+    class="button next-button"
+    *ngIf="!isLastQuestion()"
+    (click)="nextQuestion()"
+  >
+    NEXT
+  </button>
+  <button
+    class="button-submit-button"
+    *ngIf="isLastQuestion()"
+    (click)="submitQuestions()"
+  >
+    SUBMIT
+  </button>
+</div> -->
+@if (QuestionsData.length > 0) {
+<app-question-navigate
+  *ngFor="let question of QuestionsData; let i = index"
+  [questionNumber]="i + 1"
+  [questionId]="i + 1"
+  (switchQuestion)="switchQuestion($event)"
+></app-question-navigate>
 @if(QuestionsData.length > 0 ) { @if(question.question_type=='MCQ' ) {
 <app-question-overview
   [radioQuestion]="question"
@@ -19,3 +71,4 @@
   </button>
   }
 </div>
+}
