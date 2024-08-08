@@ -45,7 +45,7 @@ export class QuizServiceService {
 
   patchAnswers(answer: any) {
     const ansIndx = this.choosed_ans.findIndex((ans) => ans.id == answer.id);
-
+    //checking whether the index is available in local storage or not
     if (ansIndx < 0) {
       this.choosed_ans.push(answer);
     } else {
