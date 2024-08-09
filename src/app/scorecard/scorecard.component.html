@@ -1,25 +1,5 @@
-<!-- <div class="remark">
-  <div class="prize">
-    <img
-      src="https://media.istockphoto.com/id/1183252990/vector/first-prize-gold-trophy-icon-prize-gold-trophy-winner-first-prize-vector-illustration-and.jpg?s=612x612&w=0&k=20&c=cr3yNa3yDHeqaN_-2W8TmGvuZ2hLXufO75KOdjY-1uo="
-      alt=""
-    />
-  </div>
-  <h2>🏁🏁 Your Test is Finished 🏁🏁</h2>
-  <div class="sentence">
-    @if(score >70 && score <=90) {
-    <h2 class = "val">Hurrayyyy!!!!! 😁</h2>
-    } @if(score <=70 && score >=45){
-    <h2 class = "val">Good 😊👍👍</h2>
-    } @else {
-    <h2 class = "val">Need to improve 😒😒😒😒</h2>
-    }
-    <h2>Your Marks - {{score}}</h2>
-  </div>
-</div> -->
 
 
-<!-- score-card.component.html -->
 <div class="remark">
   <div class="prize">
     <img
@@ -41,6 +21,14 @@
     <h2>Your Marks - {{ score }}</h2>
   </div>
 </div>
+
+<div>
+  @for(list of allAnswers ; track $index){
+  <p>Question: {{ list.id }}</p>
+  <p>Correct Option: {{ list.answer}}</p>
+  }
+</div>
+
 
 
 <!-- <button mat-icon-button aria-label="click button">Show Answers</button> -->

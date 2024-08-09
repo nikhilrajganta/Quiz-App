@@ -9,7 +9,8 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './answers-screen.component.html',
   styleUrl: './answers-screen.component.scss',
 })
-export class AnswersScreenComponent {allAnswers: any;
+export class AnswersScreenComponent {
+  allAnswers: any;
 
   constructor(public dataService: QuizServiceService, private route: ActivatedRoute) {}
   ngOnInit() {
